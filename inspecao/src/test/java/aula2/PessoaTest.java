@@ -44,5 +44,17 @@ public class PessoaTest {
         String resultadoPrograma = pessoa.concatenaNomeSobreNome(nome, sobreNome);
         assertEquals("", resultadoPrograma);
     }
+    
+    
+    
+     @Test
+    public void testRetornaDadosPessoa(){     
+        Pessoa pessoa = new Pessoa();
+        String resultadoPrograma = pessoa.retornaDadosPessoa();
+        String resulExperado = "pedro da silva;10;porto alegre";
+        assertEquals(resulExperado, resultadoPrograma);
+    }
+    
+
 
 }

@@ -25,4 +25,11 @@ public class Pessoa {
         return nome + sobreNome;
     }
 
+    
+    public String retornaDadosPessoa(){
+
+      String texto = "pedro da silva;10;porto alegre";
+       return texto;
+    }
+
 }
