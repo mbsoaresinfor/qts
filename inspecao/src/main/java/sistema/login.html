@@ -1,0 +1,35 @@
+<html>
+
+<title>Pagina de Login</title>
+
+<body>
+<script>
+function valida(){
+	var nome = document.getElementById("nome");
+	var senha = document.getElementById("senha");
+	
+	if(nome.value === "teste" && senha.value === "123"){
+		return true;
+	}else{
+		alert("usuario ou senha invalida");
+		return false;
+	}
+
+}
+</script>
+
+<br><br>
+Entre com seu usuario e senha<br>
+
+<form action="paginaPrincipal.html" name="f">
+
+Usuario: <input type="text" id="nome" ><br>
+Senha:  <input type="text" id="senha"><br>
+
+<input type="submit" value="logar" id="submit" onclick="return valida()">
+
+</form>
+
+</body>
+
+</html>

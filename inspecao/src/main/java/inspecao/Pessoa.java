@@ -1,4 +1,4 @@
-package aula2;
+package inspecao;
 
 public class Pessoa {
 
