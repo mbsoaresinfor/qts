@@ -5,7 +5,14 @@
 package aula2;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import junit.framework.Assert;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mock;
 
 /**
  *
@@ -147,6 +154,22 @@ public class CalculadoraTest {
         // chama junit para executar o teste.
         assertEquals(resultadoExperado, resultadoPrograma);
     }
+    
+    @Test
+    public void testSomarMock(){
+    	// arrange
+    	Calculadora calculadora = mock(Calculadora.class);
+    	when(calculadora.
+    			somar(anyInt(),
+    					anyInt())).thenReturn(15);
+    	
+    	// act
+    	int resultado = calculadora.somar(0, 133);
+    	
+    	// assert
+    	Assert.assertEquals(15,resultado);
+    }
+    
     
     
 }
