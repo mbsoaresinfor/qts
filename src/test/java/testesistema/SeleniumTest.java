@@ -37,7 +37,7 @@ public class SeleniumTest {
         
          driver = new ChromeDriver();
 
-        driver.get("C:\\Users\\fatec.senai\\Documents\\NetBeansProjects\\inspecao\\src\\main\\java\\aula11\\login.html");
+        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
     
         namePaginaPrincipal = driver.getWindowHandle();
     }
@@ -46,15 +46,17 @@ public class SeleniumTest {
     
     @Test
     public void testTituloPaginaLogin(){
-      driver.get("C:\\Users\\fatec.senai\\Documents\\NetBeansProjects\\inspecao\\src\\main\\java\\aula11\\login.html");
-      String tituloExperado ="Pagina de Login"; 
+    	// arrange
+    	driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");      
+    	String tituloExperado ="Pagina de Login"; 
         
-      Assert.assertEquals(tituloExperado,driver.getTitle());
+    	// act, assert
+    	Assert.assertEquals(tituloExperado,driver.getTitle());
     }
     
      @Test
     public void testLogin(){
-        driver.get("C:\\Users\\fatec.senai\\Documents\\NetBeansProjects\\inspecao\\src\\main\\java\\aula11\\login.html");
+        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
         
         WebElement campoNome = driver.findElement(By.id("nome"));
          WebElement campoSenha = driver.findElement(By.id("senha"));
@@ -68,7 +70,7 @@ public class SeleniumTest {
     
     @Test
     public void testAlert(){
-        driver.get("C:\\Users\\fatec.senai\\Documents\\NetBeansProjects\\inspecao\\src\\main\\java\\aula11\\login.html");
+        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
 
         WebElement campoNome = driver.findElement(By.id("nome"));
         WebElement campoSenha = driver.findElement(By.id("senha"));
