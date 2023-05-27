@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -27,20 +28,23 @@ import integracao.Pessoa;
 
 public class BancoDadosMockTest {
     
-    private static BancoDados banco;
+    private BancoDados bancoDados;
     
     @BeforeAll
     public static void init(){
        
     }
     
+    @BeforeEach
+    public void beforeEach() {
+    	bancoDados = Mockito.mock(BancoDados.class);
+    }
     
     @Test
     public void testInsert(){
     	// arrange
     	Pessoa pessoa = new Pessoa();
-    	BancoDados bancoDados = 
-    			Mockito.mock(BancoDados.class);
+    	
     	when(bancoDados.insertPessoa(pessoa)).
     		thenReturn(15);
         pessoa.setIdade(60);
@@ -59,10 +63,10 @@ public class BancoDadosMockTest {
         Pessoa pessoa = new Pessoa();
         pessoa.setIdade(80);
         pessoa.setNome("pedro");
-        banco.insertPessoa(pessoa);
+        bancoDados.insertPessoa(pessoa);
         int id = pessoa.getId();
-        banco.deletePessoa(id);
-        assertNull(banco.buscaPessoa(id));
+        bancoDados.deletePessoa(id);
+        assertNull(bancoDados.buscaPessoa(id));
     }
     
      @Test
@@ -70,11 +74,11 @@ public class BancoDadosMockTest {
         Pessoa pessoa = new Pessoa();
         pessoa.setIdade(100);
         pessoa.setNome("maria");
-        int id = banco.insertPessoa(pessoa);
+        int id = bancoDados.insertPessoa(pessoa);
         // altero a idade 
         pessoa.setIdade(120);
-        banco.updatePessoa(pessoa);
-        pessoa = banco.buscaPessoa(id);
+        bancoDados.updatePessoa(pessoa);
+        pessoa = bancoDados.buscaPessoa(id);
         
          assertEquals(120, pessoa.getIdade());
     }
@@ -84,8 +88,8 @@ public class BancoDadosMockTest {
         Pessoa pessoa = new Pessoa();
         pessoa.setIdade(70);
         pessoa.setNome("jesus");
-        banco.insertPessoa(pessoa);
+        bancoDados.insertPessoa(pessoa);
         
-        assertTrue(banco.listPessoa().size() > 0);
+        assertTrue(bancoDados.listPessoa().size() > 0);
     }
 }
