@@ -10,7 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,7 +47,7 @@ public class BancoDadosMockTest {
     @Test
     public void testInsert(){
     	// arrange
-    	Pessoa pessoa = new Pessoa();
+    	Pessoa pessoa = new Pessoa();     	
     	
     	when(bancoDados.insertPessoa(pessoa)).
     		thenReturn(15);
@@ -85,11 +89,14 @@ public class BancoDadosMockTest {
     
     @Test
     public void testListPessoa(){
-        Pessoa pessoa = new Pessoa();
-        pessoa.setIdade(70);
-        pessoa.setNome("jesus");
-        bancoDados.insertPessoa(pessoa);
-        
-        assertTrue(bancoDados.listPessoa().size() > 0);
+        // arrange
+    	when(bancoDados.listPessoa())
+    		.thenReturn(Arrays.asList(new Pessoa()));
+    	
+    	// act
+    	int total = bancoDados.listPessoa().size();
+    	
+    	// assert  
+        assertTrue(total > 0);
     }
 }
