@@ -2,12 +2,12 @@ package testesmock;
 
 import static org.mockito.Mockito.when;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import integracao.BancoDados;
 import integracao.Pessoa;
-import junit.framework.Assert;
 import mock.PessoaService;
 
 public class PessoaServiceTest {
@@ -30,7 +30,7 @@ public class PessoaServiceTest {
 					pessoaService.salvarPessoa(pessoa);
 
 		// assert
-		Assert.assertTrue(resultadoPrograma != -1);
+		Assertions.assertTrue(resultadoPrograma != -1);
 	}
 	
 	@Test
@@ -50,6 +50,6 @@ public class PessoaServiceTest {
 					pessoaService.salvarPessoa(pessoa);
 
 		// assert
-		Assert.assertTrue(resultadoPrograma == -1);
+		Assertions.assertTrue(resultadoPrograma == -1);
 	}
 }

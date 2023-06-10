@@ -4,10 +4,11 @@
  */
 package aula2;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import junit.framework.Assert;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -167,7 +168,7 @@ public class CalculadoraTest {
     	int resultado = calculadora.somar(0, 133);
     	
     	// assert
-    	Assert.assertEquals(15,resultado);
+    	Assertions.assertEquals(15,resultado);
     }
     
     

@@ -7,8 +7,9 @@ package testesistema;
  */
 
 
-import junit.framework.Assert;
+
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
@@ -51,7 +52,7 @@ public class SeleniumTest {
     	String tituloExperado ="Pagina de Login"; 
         
     	// act, assert
-    	Assert.assertEquals(tituloExperado,driver.getTitle());
+    	Assertions.assertEquals(tituloExperado,driver.getTitle());
     }
     
      @Test
@@ -65,7 +66,7 @@ public class SeleniumTest {
          campoSenha.sendKeys("123");
          submit.click();
          String codigProximaPagina =  driver.getPageSource();
-         Assert.assertTrue(codigProximaPagina.contains("Bem vindo usuario teste"));
+         Assertions.assertTrue(codigProximaPagina.contains("Bem vindo usuario teste"));
     }
     
     @Test
@@ -80,7 +81,7 @@ public class SeleniumTest {
          submit.click();
        
          Alert alert = driver.switchTo().alert();
-         Assert.assertTrue(alert.getText().equals("usuario ou senha invalida"));
+         Assertions.assertTrue(alert.getText().equals("usuario ou senha invalida"));
          alert.accept();
          
         
