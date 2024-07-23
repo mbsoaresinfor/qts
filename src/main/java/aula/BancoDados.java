@@ -32,7 +32,7 @@ public class BancoDados {
 
 			System.out.println("Connected to H2 in-memory database.");
 
-			String sql = "Create table pessoa (ID int primary key , nome varchar(50), idade int)";
+			String sql = "Create table pessoa (ID int primary key , nome varchar(50), idade int,salario float)";
 
 			Statement statement = connection.createStatement();
 
@@ -49,7 +49,8 @@ public class BancoDados {
 
 	public int insertPessoa(Pessoa p) {
 		id++;
-		String sql = "insert into pessoa (id,nome,idade) values("+ id +","+ "'" + p.getNome() + "'," + p.getIdade() + ") ";		
+		String sql = "insert into pessoa (id,nome,idade,salario) values("+ id +","+ "'" + p.getNome() + "'," 
+					+ p.getIdade() + "," + p.getSalario() +" ) ";		
 		p.setId(id);
 		System.out.println("sql insert " + sql + " com id: " + id);
 
@@ -79,7 +80,8 @@ public class BancoDados {
 	}
 
 	public boolean updatePessoa(Pessoa p) {
-		String sql = "update  pessoa set nome = '" + p.getNome() + "', idade = " + p.getIdade() + " where id = "
+		String sql = "update  pessoa set nome = '" + p.getNome() + "', idade = " + p.getIdade() 
+				+ ", salario = " + p.getSalario() + " where id = "
 				+ p.getId();
 
 		System.out.println("sql update " + sql);
@@ -107,6 +109,7 @@ public class BancoDados {
 				pessoa.setId(resultSet.getInt("id"));
 				pessoa.setNome(resultSet.getString("nome"));
 				pessoa.setIdade(resultSet.getInt("idade"));
+				pessoa.setSalario(resultSet.getFloat("salario"));
 				lista.add(pessoa);
 			}
 

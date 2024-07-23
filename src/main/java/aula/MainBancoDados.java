@@ -12,12 +12,14 @@ public class MainBancoDados {
 		Pessoa pessoa1 = new Pessoa();
 		pessoa1.setNome("pedro");
 		pessoa1.setIdade(40);
+		pessoa1.setSalario(500);
 		banco.insertPessoa(pessoa1);
 
 		// crio outra pessoa para salvar
 		Pessoa pessoa2 = new Pessoa();
 		pessoa2.setNome("maria");
 		pessoa2.setIdade(50);
+		pessoa2.setSalario(200);
 		banco.insertPessoa(pessoa2);
 
 		// LISTA DO BANCO
@@ -26,6 +28,7 @@ public class MainBancoDados {
 			System.out.println("Pessoa id " + p.getId());
 			System.out.println("Pessoa nome " + p.getNome());
 			System.out.println("Pessoa idade " + p.getIdade());
+			System.out.println("Pessoa salario " + p.getSalario());
 			System.out.println("-------------------------------");
 		}
 
@@ -41,6 +44,7 @@ public class MainBancoDados {
 			System.out.println("Pessoa id " + p.getId());
 			System.out.println("Pessoa nome " + p.getNome());
 			System.out.println("Pessoa idade " + p.getIdade());
+			System.out.println("Pessoa salario " + p.getSalario());
 			System.out.println("-------------------------------");
 		}
 
@@ -54,6 +58,7 @@ public class MainBancoDados {
 			System.out.println("Pessoa id " + p.getId());
 			System.out.println("Pessoa nome " + p.getNome());
 			System.out.println("Pessoa idade " + p.getIdade());
+			System.out.println("Pessoa salario " + p.getSalario());
 			System.out.println("-------------------------------");
 		}
 	}
