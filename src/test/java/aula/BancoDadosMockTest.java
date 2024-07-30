@@ -18,6 +18,7 @@ import org.mockito.Mockito;
 /**
  *
  * @author marcelo.soares
+ * Exemplo de uso de objetos mocks
  */
 
 public class BancoDadosMockTest {

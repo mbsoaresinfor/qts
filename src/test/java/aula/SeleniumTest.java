@@ -21,6 +21,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  *
  * @author marcelo.soares
+ * Exemplo de teste de sistemas
  */
 public class SeleniumTest {
     
