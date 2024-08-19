@@ -103,7 +103,8 @@ public class MainInspecao {
 		boolean ret = false;
 		if(pessoa.getNome().equals("")  ) {
 			ret = false;
-		}else if(pessoa.getSalario() < 0 || pessoa.getSalario() > 12000) {
+		}else if(pessoa.getSalario() < 0 
+				|| pessoa.getSalario() > 12000) {
 			ret = false;
 		}else {
 			return true;
