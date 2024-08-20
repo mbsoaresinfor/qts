@@ -56,6 +56,11 @@ public class MainInspecao {
 		
 	}
 
+	public void showMenu() {
+		System.out.println("1. cadastro");
+		System.out.println("2. listar");
+	}
+	
 	public  void listarSalario() {
 		StringBuilder message = new StringBuilder();
 		List<Pessoa> list = banco.getPessoas();
@@ -72,11 +77,11 @@ public class MainInspecao {
 	}
 	
 
-	private  void listar() {
+	void listar() {
 		JOptionPane.showMessageDialog(null,banco.listarPrimeiroPessoas());		
 	}
 
-	private  void salvar() {
+	public  void salvar() {
 		String nome = JOptionPane.showInputDialog(null, "Digite o nome");	
 		String salario = JOptionPane.showInputDialog(null, "Digite o salario");		
 		
@@ -101,7 +106,11 @@ public class MainInspecao {
 	// retorna FALSE, se pessoa tiver problemas nos seus dados, ou TRUE, se tudo estiver sido OK.
 	public  boolean validaPessoa(Pessoa pessoa) {
 		boolean ret = false;
-		if(pessoa.getNome().equals("")  ) {
+		if(pessoa == null) {
+			return false;
+		}
+		if(pessoa.getNome() == null 
+				|| pessoa.getNome().equals("")  ) {
 			ret = false;
 		}else if(pessoa.getSalario() < 0 
 				|| pessoa.getSalario() > 12000) {
