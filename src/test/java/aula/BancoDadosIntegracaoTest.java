@@ -1,5 +1,6 @@
 package aula;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -11,6 +12,7 @@ public class BancoDadosIntegracaoTest {
 	
 	private static BancoDados banco;
     
+	
     @BeforeAll
     public static void init(){
         banco = new BancoDados();
@@ -18,12 +20,20 @@ public class BancoDadosIntegracaoTest {
     
     @Test
     public void testInsert(){
-        Pessoa pessoa = new Pessoa();
+        // arrange
+    	Pessoa pessoa = new Pessoa();
         pessoa.setIdade(60);
         pessoa.setNome("joao");
+        
+        // ack
         banco.insertPessoa(pessoa);
         int id = pessoa.getId();
-        assertNotNull(banco.buscaPessoa(id));
+        
+        // assert
+        Pessoa pessoaSalva = banco.buscaPessoa(id);
+        assertNotNull(pessoaSalva);
+        assertEquals("joao", pessoaSalva.getNome());
+        assertEquals(60, pessoaSalva.getIdade());
     }
 	
 }
