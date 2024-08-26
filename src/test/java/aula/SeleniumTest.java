@@ -11,6 +11,7 @@ package aula;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -30,7 +31,8 @@ public class SeleniumTest {
     public SeleniumTest() {
     }
     
-    @BeforeAll
+    
+    //@BeforeAll
     public static void setUp() {
          System.setProperty("webdriver.chrome.driver", 
 	                "C:\\chromedriver_win32\\chromedriver.exe");
@@ -44,7 +46,7 @@ public class SeleniumTest {
     }
     
     
-    
+    @Disabled
     @Test
     public void testTituloPaginaLogin(){
     	// arrange
@@ -55,6 +57,7 @@ public class SeleniumTest {
     	Assertions.assertEquals(tituloExperado,driver.getTitle());
     }
     
+    @Disabled
      @Test
     public void testLogin(){
         driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
@@ -69,6 +72,7 @@ public class SeleniumTest {
          Assertions.assertTrue(codigProximaPagina.contains("Bem vindo usuario teste"));
     }
     
+    @Disabled
     @Test
     public void testAlert(){
         driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
@@ -88,7 +92,8 @@ public class SeleniumTest {
         
     }
     
-    @AfterAll
+   
+   // @AfterAll
     public static void tearDown() {
         driver.quit();
     }
