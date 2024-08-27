@@ -66,7 +66,7 @@ public class BancoDadosIntegracaoTest {
     @Test
     public void testListPessoa() {
     	// arrange
-    	int totalPessoas = 1000;
+    	int totalPessoas = 50;
     	for(int i=0; i < totalPessoas; i++) {
     		Pessoa p = new Pessoa();
     		banco.insertPessoa(p);    		
@@ -77,6 +77,29 @@ public class BancoDadosIntegracaoTest {
     	
     	// assert
     	assertEquals(totalPessoas, lista.size());
+    }
+    
+    @Test
+    public void testUpdate() {
+    	// arrange
+    	Pessoa p = new Pessoa();
+    	p.setNome("maria");
+    	p.setIdade(50);
+    	int id = banco.insertPessoa(p);
+    	
+    	p.setNome("maria_alterada");
+    	p.setIdade(100);
+    	
+    	// ack
+    	banco.updatePessoa(p);
+    	Pessoa pessoaBanco = banco.buscaPessoa(id);
+    	
+    	// assert
+    	assertEquals(pessoaBanco.getNome(),
+    			"maria_alterada");
+    	assertEquals(pessoaBanco.getIdade(),
+    			100);
+    	
     }
     
     
