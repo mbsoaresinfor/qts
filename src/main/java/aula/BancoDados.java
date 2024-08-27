@@ -144,4 +144,15 @@ public class BancoDados {
 
 		return pessoa;
 	}
+	
+	public void deletarTudo() {
+		String sql = "delete from pessoa";
+		try {
+			connection.createStatement().execute(sql);
+			System.out.println("deletado todos os"
+					+ " dados da tabela pessoas");
+		} catch (Exception e) {
+			System.out.println("Error deletar tudo" + e);			
+		}
+	}
 }
