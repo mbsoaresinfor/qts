@@ -20,7 +20,7 @@ import org.mockito.Mockito;
  * @author marcelo.soares
  */
 
-public class BancoDadosMockTest {
+public class BancoDadosTest {
     
     private BancoDados bancoDados;
     
