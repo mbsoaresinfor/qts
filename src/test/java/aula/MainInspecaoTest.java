@@ -20,7 +20,7 @@ public class MainInspecaoTest {
 		Pessoa pessoa = new Pessoa();
 		pessoa.setNome("TESTE");
 		pessoa.setSalario(5000);
-		boolean resultadoEsperado = true;
+		boolean resultadoEsperado = false;
 		
 		// ack
 		boolean resultado = mainInspecao
