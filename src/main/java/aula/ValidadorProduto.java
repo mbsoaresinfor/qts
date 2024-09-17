@@ -3,6 +3,9 @@ package aula;
 public class ValidadorProduto {
 
 	public String[] validarTexto(String texto) {
+		if(texto == null) {
+			return null;
+		}
 		//abc1;tv samsung;1250xyz
 		String[] dados = texto.split(";");
 		// 1 = dados[0] 
