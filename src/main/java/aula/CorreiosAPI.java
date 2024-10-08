@@ -9,15 +9,15 @@ import java.net.URL;
 import com.google.gson.Gson;
 
 public class CorreiosAPI {
-	 public Endereco buscaCep (String cep) throws Exception {
-	        String enderecoURL = "https://viacep.com.br/ws/" + cep + "/json/";
-	        URL url = new URL(enderecoURL);
-	        HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
-	        conexao.setRequestMethod("GET");
-	        conexao.setDoInput(true);
+	 public Endereco buscaCep (String cep)  {
+	        
 	        try {
+	        	String enderecoURL = "https://viacep.com.br/ws/" + cep + "/json/";
+		        URL url = new URL(enderecoURL);
+		        HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+		        conexao.setRequestMethod("GET");
+		        conexao.setDoInput(true);
 	            BufferedReader buff = new BufferedReader(new InputStreamReader((conexao.getInputStream()), "utf-8"));
-
 	            String convertJsonString = 
 	            		converteJsonEmString(buff);
 	            Gson gson = new Gson();
@@ -25,7 +25,8 @@ public class CorreiosAPI {
 	            return endereco;
 
 	        } catch (Exception msgErro) {
-	            throw  new Exception("Erro de conexão- status Code [" + conexao.getResponseCode() + "]. " + msgErro.toString()); 
+	            System.err.println("erro na busca do cep: " + cep);
+	            return null;
 	        }
 
 	    }
