@@ -1,7 +1,12 @@
 package aula;
 
 public class IPVA {
-	public float calcular(float valorIpva,int idade, boolean bomcondutor) {
+	public float calcular(Float valorIpva,Integer idade,
+			Boolean bomcondutor) {
+		if(valorIpva == null || idade == null 
+				|| bomcondutor == null) {
+			return 0;
+		}
 		float desconto =0;
 		if(idade >=60 && bomcondutor) {
 			desconto = valorIpva * 0.30f;

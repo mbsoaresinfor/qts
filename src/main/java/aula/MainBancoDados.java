@@ -66,7 +66,7 @@ public class MainBancoDados {
 
 		public boolean listarPessoas() {
 			if (banco.listPessoa().isEmpty()) {
-				return true;
+				return false;
 			}
 			for (Pessoa p : banco.listPessoa()) {
 				System.out.println("-------------------------------");
@@ -84,6 +84,7 @@ public class MainBancoDados {
 				return false;
 			}
 			int id = banco.insertPessoa(pessoa);
+		
 			if (id > 0) {
 				return true;
 			} else {

@@ -1,5 +1,6 @@
 package aula;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
@@ -31,7 +32,8 @@ public class MainBancoDadosTest {
     	Pessoa pessoa = new Pessoa();     	
     	
     	// configura o mock
-    	when(bancoDadosMock.insertPessoa(pessoa)).thenReturn(15);
+    	when(bancoDadosMock.insertPessoa(pessoa))
+    	.thenReturn(15);
         pessoa.setIdade(60);
         pessoa.setNome("joao");
         
@@ -40,6 +42,26 @@ public class MainBancoDadosTest {
         
         // assert
         assertTrue(resultado);
+        
+    }
+    
+    @Test
+    public void testInserirPessoaComError(){
+    	// arrange
+    	Pessoa pessoa = new Pessoa();     	
+    	
+    	// configura o mock
+    	when(bancoDadosMock.insertPessoa(pessoa))
+    		.thenReturn(-1);
+        pessoa.setIdade(60);
+        pessoa.setNome("joao");
+        
+        // act
+        boolean resultado = mainBancoDados
+        		.inserirPessoa(pessoa);
+        
+        // assert
+        assertFalse(resultado);
         
     }
 }

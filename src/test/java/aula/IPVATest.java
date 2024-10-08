@@ -77,6 +77,20 @@ public class IPVATest {
 		// asssert
 		Assertions.assertEquals(resultadoEsperado, resultado,2);
 	}
+	
+	@Test
+	public void testComValorNULL() {
+		// arrange
+		float resultadoEsperado = 0;
+		
+		// ack
+		float resultado = this.
+				ipva.calcular(null, null, null);
+		
+		
+		// asssert
+		Assertions.assertEquals(resultadoEsperado, resultado,2);
+	}
 
 
 }
